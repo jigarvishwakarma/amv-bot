@@ -91,6 +91,8 @@ if int(clip0.duration) < 180:
     auto_void = int(clip0.duration/13)
     void = auto_void
     print("[!]video's duration is less than 3 min.. so void is changed to {}".format(void))
+else:
+    auto_void = void
 is_customize = input("Enter y or yes to cutomize the video : ")
 
 if is_customize in ("y","Y","YES","yes","Yes","YEs","yeah","si","ha"):
@@ -98,13 +100,11 @@ if is_customize in ("y","Y","YES","yes","Yes","YEs","yeah","si","ha"):
     start_value = input("Enter start_time: ")
     if start_value=="":
         start_value =1
-        print("start_value = {} (default)".format(start_value))
     if ":" in str(start_value):
         start_value = coverting_time_to_sec(start_value) 
 
     void = input("Enter void: ")
     if void=="":
-        print(auto_void)
         void = auto_void
     if ":" in str(void):
         void = coverting_time_to_sec(void)
@@ -112,7 +112,6 @@ if is_customize in ("y","Y","YES","yes","Yes","YEs","yeah","si","ha"):
     audio_start = input("Enter audio_start: ")
     if audio_start=="":
         audio_start = 48
-        print("audio_start = 1 (default)".format(audio_start))
     if ":" in str(audio_start):
         audio_start = coverting_time_to_sec(audio_start)
     print("(customized) start_value = {} \n(customized) void = {} \n(customized) audio_start = {}".format(start_value,void,audio_start))
